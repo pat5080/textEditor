@@ -29,9 +29,9 @@ namespace textEditor
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Newuser = new System.Windows.Forms.Button();
+            this.Login = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,33 +39,35 @@ namespace textEditor
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // Newuser
             // 
-            this.button1.Location = new System.Drawing.Point(242, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "New User";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Newuser.Location = new System.Drawing.Point(242, 303);
+            this.Newuser.Name = "Newuser";
+            this.Newuser.Size = new System.Drawing.Size(75, 23);
+            this.Newuser.TabIndex = 0;
+            this.Newuser.Text = "New User";
+            this.Newuser.UseVisualStyleBackColor = true;
+            this.Newuser.Click += new System.EventHandler(this.Newuser_Click);
             // 
-            // button2
+            // Login
             // 
-            this.button2.Location = new System.Drawing.Point(382, 303);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Login";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Login.Location = new System.Drawing.Point(382, 303);
+            this.Login.Name = "Login";
+            this.Login.Size = new System.Drawing.Size(75, 23);
+            this.Login.TabIndex = 1;
+            this.Login.Text = "Login";
+            this.Login.UseVisualStyleBackColor = true;
+            this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
-            // button3
+            // Exit
             // 
-            this.button3.Location = new System.Drawing.Point(531, 303);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Exit";
-            this.button3.UseVisualStyleBackColor = true;
+            this.Exit.Location = new System.Drawing.Point(531, 303);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(75, 23);
+            this.Exit.TabIndex = 2;
+            this.Exit.Text = "Exit";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // textBox1
             // 
@@ -119,9 +121,9 @@ namespace textEditor
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Exit);
+            this.Controls.Add(this.Login);
+            this.Controls.Add(this.Newuser);
             this.Name = "LoginScreen";
             this.Text = "Login Screen";
             this.ResumeLayout(false);
@@ -131,9 +133,9 @@ namespace textEditor
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Newuser;
+        private System.Windows.Forms.Button Login;
+        private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;

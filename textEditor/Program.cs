@@ -14,6 +14,14 @@ namespace textEditor
         [STAThread]
         static void Main()
         {
+            AccountHandler accountLoad = new AccountHandler();
+
+            if (accountLoad.accountD.ContainsKey("user1"))
+            {
+                Account account = accountLoad.accountD["RitMe"];
+                MessageBox.Show(account.DateOfBirth);
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LoginScreen());
