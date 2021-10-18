@@ -15,7 +15,7 @@ namespace textEditor
         static void Main()
         {
             AccountHandler accountLoad = new AccountHandler();
-
+            accountLoad.LoadAccounts();
 
             /*
             if (accountLoad.accountD.ContainsKey("user1"))
@@ -26,7 +26,7 @@ namespace textEditor
             */
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginScreen(accountLoad));
+            Application.Run(new LoginScreen(ref accountLoad));
         }
     }
 }

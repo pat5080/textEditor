@@ -12,9 +12,12 @@ namespace textEditor
 {
     public partial class TextEditorWindow : Form
     {
-        public TextEditorWindow()
+        AccountHandler accountLoad;
+        public TextEditorWindow(ref AccountHandler accountLoad)
         {
             InitializeComponent();
+            this.accountLoad = accountLoad;
+            Show();
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace textEditor
     {
         AccountHandler accountLoad;
 
-        public LoginScreen(AccountHandler accountLoad)
+        public LoginScreen(ref AccountHandler accountLoad)
         {
             InitializeComponent();
             this.accountLoad = accountLoad;
@@ -27,18 +27,20 @@ namespace textEditor
         {
             if(accountLoad.checkAccount(textBox1.Text, textBox2.Text))
             {
-                MessageBox.Show("Login credentials are valid.");
+                //MessageBox.Show("Login credentials are valid.");
+                TextEditorWindow newEdit = new TextEditorWindow(ref accountLoad);
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Login credentials are invalid.");
+                MessageBox.Show("Login credentials are invalid. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //Account account = new Account(textBox1.Text, textBox2.Text);
         }
 
         private void Newuser_Click(object sender, EventArgs e)
         {
-            NewUserScreen newUser = new NewUserScreen(accountLoad);
+            NewUserScreen newUser = new NewUserScreen(ref accountLoad);
             this.Hide();
             //newUser.Show();
         }

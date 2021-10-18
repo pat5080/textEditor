@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace textEditor
 {
-    class Account
+    public class Account
     {
         /*
         public Account(string username, string password)

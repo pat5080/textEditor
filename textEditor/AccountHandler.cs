@@ -12,11 +12,11 @@ namespace textEditor
     {
         //Queue<Account> accountList = new Queue<Account>();
 
-        Dictionary<string, Account> accountD = new Dictionary<string, Account>();
+        private Dictionary<string, Account> AccountD = new Dictionary<string, Account>();
 
         public AccountHandler()
         {
-            LoadAccounts();
+            
         }
 
         public void LoadAccounts()
@@ -64,7 +64,7 @@ namespace textEditor
             account.Last_Name = last_name;
             account.DateOfBirth = dateOfbirth;
 
-            accountD.Add(account.Username, account);
+            AccountD.Add(account.Username, account);
         }
 
         private List<int> delimiterLocations(string line)
@@ -87,22 +87,60 @@ namespace textEditor
             return indices;
         }
 
-        public void SaveAccounts()
+        private void SaveAccounts()
         {
+            string[] lines = new string[AccountD.Count];
+            int count = 0;
 
+            // Store an array of strings
+            foreach(KeyValuePair<string,Account> keyValue in AccountD)
+            {
+                string username = keyValue.Key;
+                Account account = keyValue.Value;
+
+                lines[count] = username + "," + account.Password + "," + account.User_Type + 
+                    "," + account.First_Name + "," + account.Last_Name + "," + account.DateOfBirth;
+
+                count++;
+            }
+
+            try
+            {
+                File.WriteAllLines("login.txt", lines);
+            }
+            catch (IOException e)
+            {
+                MessageBox.Show(e.Message + "writing to login.txt failed");
+            }
+        }
+
+        public bool AddAccount(Account account)
+        {
+            if (AccountD.ContainsKey(account.Username))
+            {
+                return false;
+            }
+            else
+            {
+                AccountD.Add(account.Username, account);
+
+                SaveAccounts();
+
+                return true;
+            }
         }
 
         public string printDictionary()
         {
-            string a = accountD.ToString();
+            string a = AccountD.ToString();
             return a;
         }
 
         public bool checkAccount(string username, string password)
         {
-            if (accountD.ContainsKey(username))
+            if (AccountD.ContainsKey(username))
             {
-                Account account = accountD[username];
+                Account account = AccountD[username];
 
                 if(password == account.Password)
                 {
@@ -111,6 +149,5 @@ namespace textEditor
             }
             return false;
         }
-
     }
 }
