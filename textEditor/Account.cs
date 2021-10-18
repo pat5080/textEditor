@@ -10,13 +10,13 @@ namespace textEditor
 {
     class Account
     {
+        /*
         public Account(string username, string password)
         {
             UsernameIn = username;
             PasswordIn = password;
-
-            //MessageBox.Show(UsernameIn + " " + PasswordIn);
         }
+        */
 
         public Account()
         {

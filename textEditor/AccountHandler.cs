@@ -8,11 +8,11 @@ using System.IO;
 
 namespace textEditor
 {
-    class AccountHandler
+    public class AccountHandler
     {
         //Queue<Account> accountList = new Queue<Account>();
 
-        public Dictionary<string, Account> accountD = new Dictionary<string, Account>();
+        Dictionary<string, Account> accountD = new Dictionary<string, Account>();
 
         public AccountHandler()
         {
@@ -96,6 +96,20 @@ namespace textEditor
         {
             string a = accountD.ToString();
             return a;
+        }
+
+        public bool checkAccount(string username, string password)
+        {
+            if (accountD.ContainsKey(username))
+            {
+                Account account = accountD[username];
+
+                if(password == account.Password)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

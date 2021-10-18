@@ -12,24 +12,40 @@ namespace textEditor
 {
     public partial class LoginScreen : Form
     {
-        public LoginScreen()
+        AccountHandler accountLoad;
+
+        public LoginScreen(AccountHandler accountLoad)
         {
             InitializeComponent();
+            this.accountLoad = accountLoad;
+            Show();
         }
+
+        
 
         private void Login_Click(object sender, EventArgs e)
         {
-            Account account = new Account(textBox1.Text, textBox2.Text);
+            if(accountLoad.checkAccount(textBox1.Text, textBox2.Text))
+            {
+                MessageBox.Show("Login credentials are valid.");
+            }
+            else
+            {
+                MessageBox.Show("Login credentials are invalid.");
+            }
+            //Account account = new Account(textBox1.Text, textBox2.Text);
         }
 
         private void Newuser_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("New user button was clicked.");
+            NewUserScreen newUser = new NewUserScreen(accountLoad);
+            this.Hide();
+            //newUser.Show();
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Exit button was clicked.");
+            Application.Exit();
         }
 
         private void label1_Click(object sender, EventArgs e)
