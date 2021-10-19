@@ -33,7 +33,34 @@ namespace textEditor
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            richTextBox1.Cut();
+        }
 
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Copy();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Paste();
+        }
+
+        private void about_Click(object sender, EventArgs e)
+        {
+            About about1 = new About();
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            LoginScreen login1 = new LoginScreen(ref accountLoad);
+            this.Hide();
+        }
+
+        private void new_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            saveas_Click(sender, e);
         }
 
         private void open_Click(object sender, EventArgs e)
@@ -86,7 +113,22 @@ namespace textEditor
 
         private void bold_Click(object sender, EventArgs e)
         {
+                richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Bold);
+        }
 
+        private void italic_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Italic);
+        }
+
+        private void underline_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Underline);
+        }
+
+        private void size_Click(object sender, EventArgs e)
+        {
+            richTextBox1.SelectionFont = new Font(richTextBox1.SelectionFont.FontFamily, float.Parse(sizeToolStripComboBox.SelectedItem.ToString()));
         }
 
         private void saveas_Click(object sender, EventArgs e)
