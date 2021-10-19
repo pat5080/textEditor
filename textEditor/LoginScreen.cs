@@ -21,6 +21,15 @@ namespace textEditor
             Show();
         }
 
+        public LoginScreen()
+        {
+            InitializeComponent();
+            AccountHandler accountLoad = new AccountHandler();
+            accountLoad.LoadAccounts();
+            this.accountLoad = accountLoad;
+            Show();
+        }
+
         
 
         private void Login_Click(object sender, EventArgs e)
@@ -28,7 +37,7 @@ namespace textEditor
             if(accountLoad.checkAccount(textBox1.Text, textBox2.Text))
             {
                 //MessageBox.Show("Login credentials are valid.");
-                TextEditorWindow newEdit = new TextEditorWindow(ref accountLoad);
+                TextEditorWindow newEdit = new TextEditorWindow(textBox1.Text, accountLoad.getUserType(textBox1.Text));
                 this.Hide();
             }
             else

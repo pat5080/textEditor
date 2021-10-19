@@ -57,7 +57,7 @@ namespace textEditor
             this.sizeToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.userToolStripLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.cutToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -214,7 +214,7 @@ namespace textEditor
             this.sizeToolStripComboBox,
             this.toolStripButton8,
             this.toolStripSeparator4,
-            this.toolStripLabel1});
+            this.userToolStripLabel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
@@ -338,12 +338,12 @@ namespace textEditor
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripLabel1
+            // userToolStripLabel
             // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(131, 22);
-            this.toolStripLabel1.Text = "User Name: HelloWorld";
-            this.toolStripLabel1.ToolTipText = "Current User";
+            this.userToolStripLabel.Name = "userToolStripLabel";
+            this.userToolStripLabel.Size = new System.Drawing.Size(131, 22);
+            this.userToolStripLabel.Text = "User Name: HelloWorld";
+            this.userToolStripLabel.ToolTipText = "Current User";
             // 
             // toolStrip2
             // 
@@ -451,7 +451,7 @@ namespace textEditor
         private System.Windows.Forms.ToolStripComboBox sizeToolStripComboBox;
         private System.Windows.Forms.ToolStripButton toolStripButton8;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripLabel userToolStripLabel;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton cutToolStripButton;
         private System.Windows.Forms.ToolStripButton copyToolStripButton;

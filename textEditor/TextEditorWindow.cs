@@ -13,8 +13,6 @@ namespace textEditor
 {
     public partial class TextEditorWindow : Form
     {
-        AccountHandler accountLoad;
-
         MemoryStream userInput = new MemoryStream();
 
         bool flag_save = false;
@@ -23,12 +21,25 @@ namespace textEditor
 
         string fileName;
 
+        string userType;
 
-        public TextEditorWindow(ref AccountHandler accountLoad)
+        string accountName;
+
+
+        public TextEditorWindow(string accountName, string userType)
         {
             InitializeComponent();
-            this.accountLoad = accountLoad;
             Show();
+
+            this.accountName = accountName;
+            this.userType = userType;
+
+            userToolStripLabel.Text = "User: " + accountName;
+
+            if(userType == "View")
+            {
+                disable_buttons();
+            }
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,7 +64,7 @@ namespace textEditor
 
         private void logout_Click(object sender, EventArgs e)
         {
-            LoginScreen login1 = new LoginScreen(ref accountLoad);
+            LoginScreen login1 = new LoginScreen();
             this.Hide();
         }
 
@@ -61,6 +72,26 @@ namespace textEditor
         {
             richTextBox1.Clear();
             saveas_Click(sender, e);
+        }
+
+        private void disable_buttons()
+        {
+            richTextBox1.ReadOnly = true;
+
+            saveAsToolStripMenuItem.Enabled = false;
+            toolStripButton3.Enabled = false;
+
+            toolStripButton4.Enabled = false;
+            saveToolStripMenuItem.Enabled = false;
+
+            toolStripMenuItem4.Enabled = false;
+            toolStripButton1.Enabled = false;
+
+            cutToolStripMenuItem.Enabled = false;
+            cutToolStripButton.Enabled = false;
+
+            pasteToolStripButton.Enabled = false;
+            pasteToolStripMenuItem.Enabled = false;
         }
 
         private void open_Click(object sender, EventArgs e)

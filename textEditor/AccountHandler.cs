@@ -149,5 +149,12 @@ namespace textEditor
             }
             return false;
         }
+
+        public string getUserType(string username)
+        {
+            Account account = AccountD[username];
+
+            return account.User_Type;
+        }
     }
 }
