@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace textEditor
 {
+    /* The class defines the about dialog box */
     public partial class About : Form
     {
         public About()

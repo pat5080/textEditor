@@ -8,22 +8,14 @@ using System.Windows.Forms;
 
 namespace textEditor
 {
+    /* This class stores all variables associated with an account */
     public class Account
     {
-        /*
-        public Account(string username, string password)
-        {
-            UsernameIn = username;
-            PasswordIn = password;
-        }
-        */
 
         public Account()
         {
 
         }
-
-        //Dictionary<int, string> account = new Dictionary<int, string>();
 
         public string Username { get; set; }
         public string Password { get; set; }

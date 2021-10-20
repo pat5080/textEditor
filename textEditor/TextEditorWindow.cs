@@ -11,6 +11,8 @@ using System.Windows.Forms;
 
 namespace textEditor
 {
+
+    /* This class contains all the functionality related to the richtextbox and the click events that trigger other methods and code blocks */
     public partial class TextEditorWindow : Form
     {
         MemoryStream userInput = new MemoryStream();
@@ -74,6 +76,7 @@ namespace textEditor
             saveas_Click(sender, e);
         }
 
+        /* The function below disables button functionality depending on the user type */
         private void disable_buttons()
         {
             richTextBox1.ReadOnly = true;
@@ -94,6 +97,7 @@ namespace textEditor
             pasteToolStripMenuItem.Enabled = false;
         }
 
+        /* Open dialog box*/
         private void open_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -118,7 +122,7 @@ namespace textEditor
             }
 
         }
-
+        /* Save dialog */
         private void save_Click(object sender, EventArgs e)
         {
 
@@ -167,34 +171,22 @@ namespace textEditor
             flag_save = true;
             richTextBox1.SaveFile(userInput, RichTextBoxStreamType.RichText);
             userInput.WriteByte(13);
-            // Set the properties on SaveFileDialog1 so the user is 
-            // prompted to create the file if it doesn't exist 
-            // or overwrite the file if it does exist.
+
             SaveFileDialog SaveFileDialog1 = new SaveFileDialog();
             SaveFileDialog1.CreatePrompt = true;
             SaveFileDialog1.OverwritePrompt = true;
 
-            // Set the file name to myText.txt, set the type filter
-            // to text files, and set the initial directory to the 
-            // MyDocuments folder.
-            // DefaultExt is only used when "All files" is selected from 
-            // the filter box and no extension is specified by the user.
             SaveFileDialog1.DefaultExt = "txt";
             SaveFileDialog1.Filter =
                 "rtf files (*.rtf)|*.rtf";
             SaveFileDialog1.InitialDirectory =
                 Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-            // Call ShowDialog and check for a return value of DialogResult.OK,
-            // which indicates that the file was saved. 
             DialogResult result = SaveFileDialog1.ShowDialog();
             Stream fileStream;
 
             if (result == DialogResult.OK)
             {
-                // Open the file, copy the contents of memoryStream to fileStream,
-                // and close fileStream. Set the memoryStream.Position value to 0 
-                // to copy the entire stream. 
                 fileName = SaveFileDialog1.FileName;
                 filePath = Path.GetDirectoryName(fileName);
                 fileStream = SaveFileDialog1.OpenFile();

@@ -8,10 +8,9 @@ using System.IO;
 
 namespace textEditor
 {
+    /* This class stores all accounts into a dictionary data structure that is passed around between screens to access/add accounts */
     public class AccountHandler
     {
-        //Queue<Account> accountList = new Queue<Account>();
-
         private Dictionary<string, Account> AccountD = new Dictionary<string, Account>();
 
         public AccountHandler()
@@ -78,11 +77,6 @@ namespace textEditor
                     indices.Add(i);
                 }
             }
-            /*
-            for (int i = line.IndexOf(','); i > -1; i = line.IndexOf(',', i + 1))
-            {
-                indices.Add(i);
-            } */
 
             return indices;
         }

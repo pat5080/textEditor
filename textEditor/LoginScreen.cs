@@ -36,7 +36,6 @@ namespace textEditor
         {
             if(accountLoad.checkAccount(textBox1.Text, textBox2.Text))
             {
-                //MessageBox.Show("Login credentials are valid.");
                 TextEditorWindow newEdit = new TextEditorWindow(textBox1.Text, accountLoad.getUserType(textBox1.Text));
                 this.Hide();
             }
@@ -44,24 +43,17 @@ namespace textEditor
             {
                 MessageBox.Show("Login credentials are invalid. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //Account account = new Account(textBox1.Text, textBox2.Text);
         }
 
         private void Newuser_Click(object sender, EventArgs e)
         {
             NewUserScreen newUser = new NewUserScreen(ref accountLoad);
             this.Hide();
-            //newUser.Show();
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

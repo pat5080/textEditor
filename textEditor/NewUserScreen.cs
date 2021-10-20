@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace textEditor
 {
+    /* This class details the new user form that a user has to fill out to create a new account */
     public partial class NewUserScreen : Form
     {
         AccountHandler accountLoad;
@@ -43,10 +44,6 @@ namespace textEditor
                 newAccount.Last_Name = textBox5.Text;
                 newAccount.DateOfBirth = dateTimePicker1.Value.Date.ToString("dd-MM-yyyy");
 
-                /*
-                MessageBox.Show(newAccount.Username+","+newAccount.Password+","+newAccount.User_Type+","+newAccount.First_Name
-                    +","+newAccount.Last_Name+","+newAccount.DateOfBirth.ToString());
-                */
                 bool flag = accountLoad.AddAccount(newAccount);
 
                 if(!flag)
